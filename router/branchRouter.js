@@ -1,0 +1,11 @@
+const router = require("express").Router();
+const branchController = require("../controllers/branchController");
+router.route("/").get(branchController.findBranchs);
+router.route("/create").post(branchController.createBranch);
+router.route("/edit/:branchId").post(branchController.editBranch);
+router.route("/request/:branchId").post(branchController.createProductOrder);
+router.route("/request").get(branchController.getProductsOrders);
+router.route("/request/edit/:id").post(branchController.changeStatus);
+router.route("/request/delete/:id").post(branchController.deleteRequest);
+router.route("/products/add").post(branchController.addProduct);
+module.exports = router;
